@@ -9,78 +9,98 @@ class PassTable extends React.PureComponent {
         data={[]}
         columns={[
           {
-            Header: 'Track',
-            accessor: 'track',
+            Header: 'Race Data',
+            columns: [
+              {
+                Header: 'Date',
+                accessor: 'timestamp',
+                Cell: ({ value }) => (value ? value.toLocaleString() : ''),
+              },
+              {
+                Header: 'Track',
+                accessor: 'track',
+              },
+              {
+                Header: 'Lane',
+                accessor: 'lane',
+              },
+              {
+                Header: 'R/T',
+                accessor: 'reaction_time',
+              },
+              {
+                Header: 'Full Pass?',
+                accessor: 'full_pass',
+              },
+              {
+                Header: 'Notes?',
+                accessor: 'note',
+                Cell: ({ value }) => (value ? 'Yes' : 'No'),
+              },
+            ],
           },
           {
-            Header: 'Lane',
-            accessor: 'lane',
+            Header: 'Elapsed Times',
+            columns: [
+              {
+                Header: '60\'',
+                accessor: 'et_60',
+              },
+              {
+                Header: '330\'',
+                accessor: 'et_330',
+              },
+              {
+                Header: '660\'',
+                accessor: 'et_660',
+              },
+              {
+                Header: '1000\'',
+                accessor: 'et_1000',
+              },
+              {
+                Header: '1320\'',
+                accessor: 'et_1320',
+              },
+            ],
           },
           {
-            Header: 'R/T',
-            accessor: 'reaction_time',
+            Header: 'Speed (MPH)',
+            columns: [
+              {
+                Header: '660\'',
+                accessor: 'mph_660',
+              },
+              {
+                Header: '1320\'',
+                accessor: 'mph_1320',
+              },
+            ],
           },
           {
-            Header: 'ET 60',
-            accessor: 'et_60',
-          },
-          {
-            Header: 'ET 330',
-            accessor: 'et_330',
-          },
-          {
-            Header: 'ET 660',
-            accessor: 'et_660',
-          },
-          {
-            Header: 'ET 1000',
-            accessor: 'et_1000',
-          },
-          {
-            Header: 'ET 1320',
-            accessor: 'et_1320',
-          },
-          {
-            Header: 'MPH 660',
-            accessor: 'mph_660',
-          },
-          {
-            Header: 'MPH 1320',
-            accessor: 'mph_1320',
-          },
-          {
-            Header: 'Full Pass?',
-            accessor: 'full_pass',
-          },
-          {
-            Header: 'Temperature',
-            accessor: 'temperature',
-          },
-          {
-            Header: 'Density Altitude',
-            accessor: 'density_altitute',
-          },
-          {
-            Header: 'Pressure',
-            accessor: 'barametric_pressure',
-          },
-          {
-            Header: 'Wind Speed',
-            accessor: 'wind_speed',
-          },
-          {
-            Header: 'Wind Direction',
-            accessor: 'wind_direction',
-          },
-          {
-            Header: 'Date',
-            accessor: 'timestamp',
-            Cell: ({ value }) => (value ? value.toLocaleString() : ''),
-          },
-          {
-            Header: 'Notes?',
-            accessor: 'note',
-            Cell: ({ value }) => (value ? 'Yes' : 'No'),
+            'Header': 'Weather',
+            columns: [
+              {
+                Header: 'Temperature',
+                accessor: 'temperature',
+              },
+              {
+                Header: 'Density Altitude',
+                accessor: 'density_altitute',
+              },
+              {
+                Header: 'Pressure',
+                accessor: 'barametric_pressure',
+              },
+              {
+                Header: 'Wind Speed',
+                accessor: 'wind_speed',
+              },
+              {
+                Header: 'Wind Direction',
+                accessor: 'wind_direction',
+              },
+            ],
           },
         ]}
       />
