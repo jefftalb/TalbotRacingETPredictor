@@ -72,9 +72,8 @@ class PassTable extends React.PureComponent {
                 Cell: ({ value }) => (value ? 'Yes' : 'No'),
               },
               {
-                Header: 'Notes?',
+                Header: 'Notes',
                 accessor: 'note',
-                Cell: ({ value }) => (value ? 'Yes' : 'No'),
               },
             ],
           },
@@ -90,7 +89,7 @@ class PassTable extends React.PureComponent {
                 accessor: 'et_330',
               },
               {
-                Header: '660\'',
+                Header: '1/8',
                 accessor: 'et_660',
               },
               {
@@ -98,7 +97,7 @@ class PassTable extends React.PureComponent {
                 accessor: 'et_1000',
               },
               {
-                Header: '1320\'',
+                Header: '1/4',
                 accessor: 'et_1320',
               },
             ],
@@ -107,11 +106,11 @@ class PassTable extends React.PureComponent {
             Header: 'Speed (MPH)',
             columns: [
               {
-                Header: '660\'',
+                Header: '1/8',
                 accessor: 'mph_660',
               },
               {
-                Header: '1320\'',
+                Header: '1/4',
                 accessor: 'mph_1320',
               },
             ],
@@ -124,7 +123,7 @@ class PassTable extends React.PureComponent {
                 accessor: 'temperature',
               },
               {
-                Header: 'Density Altitude',
+                Header: 'DA',
                 accessor: 'density_altitute',
               },
               {

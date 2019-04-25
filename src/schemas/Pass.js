@@ -4,8 +4,8 @@ import LongTextField from 'uniforms-bootstrap4/LongTextField';
 const Pass = new SimpleSchema({
   track: {
     type: String,
-    allowedValues: ['Grand Bend', 'Toronto'],
-    defaultValue: 'Grand Bend',
+    allowedValues: ['GBM', 'TMP', 'STP', 'US131', 'Other'],
+    defaultValue: 'GBM',
   },
   lane: {
     type: String,
@@ -20,23 +20,23 @@ const Pass = new SimpleSchema({
   et_1000: Number,
   et_1320: Number,
   mph_1320: Number,
-  full_pass: {
-    type: Boolean,
-    defaultValue: true,
-  },
-  temperature: Number,
-  humidity: Number,
-  density_altitute: SimpleSchema.Integer,
-  barametric_pressure: Number,
   wind_speed: Number,
   wind_direction: {
     type: String,
     allowedValues: ['Head', 'Cross-Head', 'Cross-Tail', 'Tail', 'Cross'],
     defaultValue: 'Head',
   },
+  temperature: Number,
+  humidity: Number,
+  density_altitute: SimpleSchema.Integer,
+  barametric_pressure: Number,
   timestamp: {
     type: Date,
     defaultValue: new Date(),
+  },
+  full_pass: {
+    type: Boolean,
+    defaultValue: true,
   },
   note: {
     type: String,
@@ -44,5 +44,17 @@ const Pass = new SimpleSchema({
     optional: true,
   },
 });
+
+Pass.labels({
+  reaction_time: "R/T",
+  et_60: "60\'",
+  et_330: "330\'",
+  et_660: "1/8 ET",
+  mph_660: "1/8 MPH",
+  et_1000: "1000\'",
+  et_1320: "1/4 ET",
+  mph_1320: "1/4 MPH",
+  timestamp: "Date & Time"
+})
 
 export default Pass;
