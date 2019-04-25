@@ -14,6 +14,7 @@ app.config.from_object(__name__)
 db_wrapper = FlaskDB(app)
 
 class Pass(db_wrapper.Model):
+    id = IntegerField(primary_key=True)
     track = CharField()
     lane = CharField()
     reaction_time = DoubleField()
@@ -37,9 +38,12 @@ class Pass(db_wrapper.Model):
 def create_tables():
     db_wrapper.database.create_tables([Pass])
 
-@app.route('/api/passes/', methods=['POST', 'GET'])
+@app.route('/api/passes/', methods=['POST', 'GET', 'DELETE'])
 def get_passes():
-    if request.method == 'POST':
+    if request.method =='DELETE':
+        Pass.delete().where(Pass.id == request.json['id']).execute()
+        return make_response('OK', 200)
+    elif request.method == 'POST':
         passes = []
         pass_model = dict_to_model(Pass, request.json)
         dt, _, us = pass_model.timestamp.partition(".")
@@ -60,4 +64,5 @@ def get_passes():
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def path(path):
+    create_tables()
     return render_template('index.html')
