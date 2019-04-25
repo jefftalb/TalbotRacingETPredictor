@@ -18,7 +18,7 @@ const Index = () => (
 
 const App = () => (
   <Router>
-    <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <nav className="navbar navbar-expand navbar-dark bg-dark fixed-top">
       <Link className="navbar-brand" to="/">Talbot Racing ET Predictor</Link>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
