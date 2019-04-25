@@ -23,7 +23,6 @@ const Pass = new SimpleSchema({
   full_pass: {
     type: Boolean,
     defaultValue: true,
-    optional: true,
   },
   temperature: Number,
   humidity: Number,

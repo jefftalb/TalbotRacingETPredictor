@@ -1,27 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { fetch } from 'whatwg-fetch';
-import AutoForm from 'uniforms-bootstrap4/AutoForm';
-import Pass from './schemas/Pass';
+import PassForm from './PassForm';
 import PassTable from './PassTable';
 import './App.css';
-
-const handleSubmit = (pass) => {
-  fetch('/api/passes', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(pass),
-  });
-}
-
-const PassForm = () => (
-  <div>
-    <h1>Enter Pass</h1>
-    <AutoForm schema={Pass} onSubmit={pass => handleSubmit(pass)} />
-  </div>
-);
 
 const Index = () => (
   <PassTable />
