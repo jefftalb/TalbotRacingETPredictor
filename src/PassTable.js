@@ -10,13 +10,32 @@ class PassTable extends React.PureComponent {
     this.state = {
       passes: [],
     };
+
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
+    this.loadPasses();
+  }
+
+  loadPasses() {
     fetch('/api/passes')
     .then(response => response.json())
     .then(json => {
       this.setState({ passes: json });
+    });
+  }
+
+  handleDelete(id) {
+    fetch('/api/passes', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id }),
+    })
+    .then(() => {
+      this.loadPasses();
     });
   }
 
@@ -50,6 +69,7 @@ class PassTable extends React.PureComponent {
               {
                 Header: 'Full Pass?',
                 accessor: 'full_pass',
+                Cell: ({ value }) => (value ? 'Yes' : 'No'),
               },
               {
                 Header: 'Notes?',
@@ -121,6 +141,20 @@ class PassTable extends React.PureComponent {
               },
             ],
           },
+          {
+            Header: 'Delete',
+            accessor: 'id',
+            Cell: ({ value }) => (
+              <a
+                href="#delete"
+                onClick={() => {
+                  this.handleDelete(value);
+                }}
+              >
+                Delete Pass
+              </a>
+            ),
+          }
         ]}
       />
     );
