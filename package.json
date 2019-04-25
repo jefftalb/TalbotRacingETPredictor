@@ -1,0 +1,49 @@
+{
+  "name": "talbotracingetpredictor",
+  "version": "1.0.0",
+  "description": "1. Start venv `python -m venv venv`\r 2. Activate venv `. venv/Scripts/activate`\r 3. Install dependencies `pip install -r requirements.txt`\r 4. Run server `export FLASK_APP=app.py && flask run`",
+  "main": "index.js",
+  "dependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "bootstrap": "^4.3.1",
+    "bootstrap-loader": "^3.0.3",
+    "css-loader": "^2.1.1",
+    "exports-loader": "^0.7.0",
+    "imports-loader": "^0.8.0",
+    "jquery": "^3.4.0",
+    "mini-css-extract-plugin": "^0.6.0",
+    "node-sass": "^4.11.0",
+    "postcss-loader": "^3.0.0",
+    "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.8",
+    "react-dom": "^16.8.6",
+    "react-hot-loader": "^4.8.4",
+    "resolve-url-loader": "^3.1.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1",
+    "webpack-dev-server": "^3.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jefftalb/TalbotRacingETPredictor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jefftalb/TalbotRacingETPredictor/issues"
+  },
+  "homepage": "https://github.com/jefftalb/TalbotRacingETPredictor#readme"
+}

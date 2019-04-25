@@ -85,19 +85,8 @@ ENV/
 # Spyder project settings
 .spyderproject
 
+# node moudules
+node_modules/
+
 # Rope project settings
 .ropeproject
-
-    © 2019 GitHub, Inc.
-    Terms
-    Privacy
-    Security
-    Status
-    Help
-
-    Contact GitHub
-    Pricing
-    API
-    Training
-    Blog
-    About
