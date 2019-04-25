@@ -1,12 +1,31 @@
 import React from 'react';
 import ReactTable from 'react-table';
+import {fetch} from 'whatwg-fetch';
 import 'react-table/react-table.css';
 
 class PassTable extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      passes: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch('/api/passes')
+    .then(response => response.json())
+    .then(json => {
+      this.setState({ passes: json });
+    });
+  }
+
   render() {
+    const { passes } = this.state;
+
     return (
       <ReactTable
-        data={[]}
+        data={passes}
         columns={[
           {
             Header: 'Race Data',
