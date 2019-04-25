@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import AutoForm from 'uniforms-bootstrap4/AutoForm';
 import Pass from './schemas/Pass';
+import PassTable from './PassTable';
 import './App.css';
 
 const PassForm = () => (
@@ -12,7 +13,7 @@ const PassForm = () => (
 );
 
 const Index = () => (
-  <h1>Passes</h1>
+  <PassTable />
 );
 
 const App = () => (
