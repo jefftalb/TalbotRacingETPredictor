@@ -42,8 +42,10 @@ def get_passes():
     if request.method == 'POST':
         passes = []
         pass_model = dict_to_model(Pass, request.json)
-        passes.append(pass_model)
-        created = Pass.bulk_create(passes)
+        dt, _, us = pass_model.timestamp.partition(".")
+        dt= datetime.datetime.strptime(dt, "%Y-%m-%dT%H:%M:%S")
+        pass_model.timestamp = dt
+        pass_model.save()
         return make_response('OK', 200)
     else:
         len = request.args.get('length', -1)
