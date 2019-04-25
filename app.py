@@ -41,10 +41,8 @@ def create_tables():
 def get_passes():
     if request.method == 'POST':
         passes = []
-        test_pass = json.loads(request.json)
-        for pass_json in test_pass:
-            pass_model = dict_to_model(Pass, pass_json)
-            passes.append(pass_model)
+        pass_model = dict_to_model(Pass, request.json)
+        passes.append(pass_model)
         created = Pass.bulk_create(passes)
         return make_response('OK', 200)
     else:
