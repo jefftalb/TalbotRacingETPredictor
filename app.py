@@ -1,8 +1,10 @@
 import datetime
 import sqlite3
-from flask import Flask, render_template
+import json
+from flask import Flask, render_template, request
 from peewee import *
 from playhouse.flask_utils import FlaskDB
+from playhouse.shortcuts import model_to_dict, dict_to_model
 
 DATABASE = 'sqlite:///talbotracing.db'
 
@@ -35,7 +37,16 @@ class Pass(db_wrapper.Model):
 def create_tables():
     db_wrapper.database.create_tables([Pass])
 
-@app.route('/test')
+@app.route('/passes/', methods=['GET'])
+def get_passes():
+    len = request.args.get('length', -1)
+    passes = (Pass.select().order_by(Pass.timestamp.desc()).limit(len))
+    runs = []
+    for run in passes:
+        run_dict = model_to_dict(run)
+        run_dict['timestamp'] = datetime.datetime.strftime(run_dict['timestamp'], '%Y-%m-%d %H:%M')
+        runs.append(run_dict)
+    return json.dumps(runs)
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
