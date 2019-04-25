@@ -32,7 +32,7 @@ class Pass(db_wrapper.Model):
     wind_speed = DoubleField()
     wind_direction = CharField()
     timestamp = DateTimeField(default=datetime.datetime.now)
-    note = TextField()
+    note = TextField(null=True)
 
 def create_tables():
     db_wrapper.database.create_tables([Pass])
