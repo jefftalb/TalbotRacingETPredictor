@@ -37,6 +37,7 @@ def create_tables():
 
 @app.route('/test')
 
-@app.route('/')
-def hello_world():
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def path(path):
     return render_template('index.html')
